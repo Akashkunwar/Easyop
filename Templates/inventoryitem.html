@@ -1,0 +1,13 @@
+<div class="border-bottom ms-2" style="margin-bottom: 4px;">
+    <h4 style="color: rgb(120,120,120);margin-bottom: 4px;">{{inventory['Item']}}
+    </h4>
+{% if 'Color' in inventory %}
+<div>
+    <b>Color :</b>{{inventory['Color']}}
+</div>
+{% endif %}
+<div style='margin-bottom:20px;'>
+    <b>Price : </b> {{inventory['Price']}}
+</div>
+<button type="button" class="btn btn-outline-primary mb-4">Add Inventory</button>
+</div>
