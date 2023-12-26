@@ -1,4 +1,5 @@
-<div class="border-bottom ms-2" style="margin-bottom: 4px;">
+<div class="border-bottom ms-2 row" style="margin-bottom: 4px;">
+    <div class="col-9">
     <h4 style="color: rgb(120,120,120);margin-bottom: 4px;">{{inventory['Item']}}
     </h4>
 {% if 'Color' in inventory %}
@@ -9,5 +10,8 @@
 <div style='margin-bottom:20px;'>
     <b>Price : </b> {{inventory['Price']}}
 </div>
-<button type="button" class="btn btn-outline-primary mb-4">Add Inventory</button>
+</div>
+<div class = "col-3">
+<button type="button" class="btn btn-outline-primary mt-4">Show Details</button>
+</div>
 </div>

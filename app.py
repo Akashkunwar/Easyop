@@ -1,4 +1,4 @@
-from flask import  Flask, render_template
+from flask import  Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -21,6 +21,10 @@ inventory = [{'id':1,
 @app.route('/')
 def hello_world():
     return render_template('home.html', inventory=inventory, companyName = 'EasyOP')
+
+@app.route('/showDetails')
+def listjob():
+    return jsonify(inventory)
 
 if __name__ == "__main__":
     app.run()
