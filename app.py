@@ -1,30 +1,35 @@
 from flask import  Flask, render_template, jsonify
+from database import engine, load_inventory_from_DB, load_inventories_from_DB
+from sqlalchemy import text
 
 app = Flask(__name__)
-
-inventory = [{'id':1,
-         'Item':'Vivo v2',
-         'Color':'Red',
-         'Price':'Rs. 34000'},
-         {'id':2,
-         'Item':'Moto G2',
-         'Price':'Rs. 44000'},
-         {'id':3,
-         'Item':'Iphone 14 pro max',
-         'Color':'Black',
-         'Price':'Rs. 134000'},
-         {'id':4,
-         'Item':'Realme GT Master',
-         'Color':'Purple',
-         'Price':'Rs. 30000'}]
  
+def load_inventories_from_DB():
+    with engine.connect() as conn:
+        result = conn.execute(text("select * from inventory"))
+        result_all = result.all()
+        inventory_dict = []
+        for x in range(len(result_all)):
+            columns = result.keys()
+            row_dict = dict(zip(columns, result_all[x]))
+            inventory_dict.append(row_dict)
+        return inventory_dict
+
 @app.route('/')
-def hello_world():
+def hello_easyop():
+    inventory=load_inventories_from_DB()
     return render_template('home.html', inventory=inventory, companyName = 'EasyOP')
 
-@app.route('/showDetails')
+@app.route('/api/inventory')
 def listjob():
+    inventory=load_inventories_from_DB()
     return jsonify(inventory)
+
+@app.route("/api/inventory/<Id>")
+def show_job(Id):
+    job = load_inventory_from_DB(Id)
+    return jsonify(job)
+
 
 if __name__ == "__main__":
     app.run()
