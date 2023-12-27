@@ -33,6 +33,8 @@ def list_inventory():
 @app.route("/inventory/<Id>")
 def show_inventory(Id):
     inventory = load_inventory_from_DB(Id)
+    if not inventory:
+        return "Not Found", 404
     return render_template('inventory.html', inventory=inventory)
 
 if __name__ == "__main__":

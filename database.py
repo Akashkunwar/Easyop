@@ -2,10 +2,6 @@ import sqlalchemy
 from sqlalchemy import create_engine, text
 import os
 
-# with open('env.txt', 'r') as f:
-#     db_conn_str = f.read()
-# print(db_conn_str)
-
 db_conn_str = os.environ['DB_CONN_STR']
 
 engine = create_engine(
