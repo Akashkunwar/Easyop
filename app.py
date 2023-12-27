@@ -21,15 +21,19 @@ def hello_easyop():
     return render_template('home.html', inventory=inventory, companyName = 'EasyOP')
 
 @app.route('/api/inventory')
-def listjob():
+def list_inventory():
     inventory=load_inventories_from_DB()
     return jsonify(inventory)
 
-@app.route("/api/inventory/<Id>")
-def show_job(Id):
-    job = load_inventory_from_DB(Id)
-    return jsonify(job)
+# @app.route("/api/inventory/<Id>")
+# def show_inventory(Id):
+#     inventory = load_inventory_from_DB(Id)
+#     return jsonify(inventory)
 
+@app.route("/inventory/<Id>")
+def show_inventory(Id):
+    inventory = load_inventory_from_DB(Id)
+    return render_template('inventory.html', inventory=inventory)
 
 if __name__ == "__main__":
     app.run()
