@@ -14,7 +14,7 @@ engine = create_engine(
     db_conn_str,
     connect_args={
         "ssl" : {
-        "ca": "Easyop\cacert-2023-12-12.pem"}})
+        "ca": "cacert-2023-12-12.pem"}})
 
 def load_inventories_from_DB():
     with engine.connect() as conn:
