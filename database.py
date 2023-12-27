@@ -1,12 +1,12 @@
 import sqlalchemy
 from sqlalchemy import create_engine, text
+import os
 
-# # import os
+# with open('D:\Project\Easyop\env.txt', 'r') as f:
+#     db_conn_str = f.read()
+# print(db_conn_str)
 
-with open('D:\Project\Easyop\env.txt', 'r') as f:
-    db_conn_str = f.read()
-print(db_conn_str)
-# # db_conn_str = os.environ['DB_CONN_STR']
+db_conn_str = os.environ['DB_CONN_STR']
 
 # db_conn_str = "mysql+pymysql://2kmr91fsicqq9bbrq2am:pscale_pw_ijHbJNgRvL8MMwjNPB69ihUzrMx2SkeMkW6XNxedw77@aws.connect.psdb.cloud/easyop?charset=utf8mb4"
 
