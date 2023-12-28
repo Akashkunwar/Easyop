@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {% include 'bootstrap.html' %}
+        {% include 'bootstrap.html' %} 
         <title>Inventory</title>
     </head>
     <body>
         {% include 'header.html' %}
-        <h2>Id : {{inventory.Id}}</h2>
-        <h2>{{inventory.Company}} : {{inventory.Model}}</h2>
-        <p>{{inventory.Color}} | Price : {{inventory.Price}} | Qty : {{inventory.Quantity}}</p>
-        <p>Discription : {{inventory.Discription}}</p>
+        <div class="container mt-3">
+            <h2>Id : {{inventory.Id}}</h2>
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                  <p>{{inventory.Company}} : {{inventory.Model}}</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    {{inventory.Color}} | Qty : {{inventory.Quantity}} | <cite title="Source Title">Price : {{inventory.Price}}</cite>
+                </figcaption>
+              </figure>
+            <!-- <h2>{{inventory.Company}} : {{inventory.Model}}</h2>
+            <p>{{inventory.Color}} | Price : {{inventory.Price}} | Qty : {{inventory.Quantity}}</p> -->
+            <div class="ms-5">
+            <h4>Discription</h4>
+            <ul>
+                {% for line in inventory.Discription.split("\n") %}
+                <li>{{line}}.</li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
         {% include 'footer.html' %}
     </body>
 </html>
