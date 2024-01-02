@@ -36,10 +36,20 @@ def add_inventory_to_db(data):
     with engine.connect() as conn:
         query = text('Insert into inventory (Company, Model, Color, Price, Quantity, Discription) VALUES (:Company, :Model, :Color, :Price, :Quantity, :Discription)')
 
-        conn.execute(query,
-                     Company=data["Company"],
-                     Model=data["Model"], 
-                     Color=data["Color"], 
-                     Price=data["Price"], 
-                     Quantity=data["Quantity"], 
-                     Discription=data["Discription"])
+        conn.execute(query,data)
+        
+# data = {
+#     "Color": "Pink",
+#     "Company": 'Oneplus',
+#     "Discription": "Very Old phone",
+#     "Model": "5T",
+#     "Price": "12000",
+#     "Quantity": "2"
+# }
+
+# with engine.connect() as conn:
+#     query = text("INSERT INTO inventory (Company, Model, Color, Price, Quantity, Discription) VALUES (:Company, :Model, :Color, :Price, :Quantity, :Discription)")
+
+#     conn.execute(query, data)
+
+

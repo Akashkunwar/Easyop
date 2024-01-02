@@ -43,8 +43,8 @@ def add_inventory():
 
 @app.route("/AddInventory/Submitions", methods=['post'])
 def add_to_inventory():
-    data = request.form
-    return jsonify(data)
+    data = request.form.to_dict()
+    # return jsonify(data)
     add_inventory_to_db(data)
     return render_template('InventoryAdded.html', data=data)
 
