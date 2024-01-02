@@ -1,4 +1,4 @@
-from flask import  Flask, render_template, jsonify
+from flask import  Flask, render_template, jsonify, request
 from database import engine, load_inventory_from_DB, load_inventories_from_DB
 from sqlalchemy import text
 
@@ -36,6 +36,15 @@ def show_inventory(Id):
     if not inventory:
         return "Not Found", 404
     return render_template('inventory.html', inventory=inventory)
+
+@app.route("/AddInventory")
+def add_inventory():
+    return render_template('AddInventory.html')
+
+@app.route("/AddInventory/Submitions")
+def add_to_inventory():
+    data = request.args
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.run()
