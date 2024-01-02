@@ -31,3 +31,15 @@ def load_inventory_from_DB(id):
                 columns = result.keys()
                 row_dict = dict(zip(columns, result_all[x]))
                 return row_dict
+
+def add_inventory_to_db(data):
+    with engine.connect() as conn:
+        query = text('Insert into inventory (Company, Model, Color, Price, Quantity, Discription) VALUES (:Company, :Model, :Color, :Price, :Quantity, :Discription)')
+
+        conn.execute(query,
+                     Company=data["Company"],
+                     Model=data["Model"], 
+                     Color=data["Color"], 
+                     Price=data["Price"], 
+                     Quantity=data["Quantity"], 
+                     Discription=data["Discription"])

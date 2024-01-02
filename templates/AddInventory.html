@@ -13,7 +13,7 @@
          {% include 'header.html' %}
         <div class="mx-5">
         <h4>Add items</h4>
-        <form class="mx-5" action="/AddInventory/Submitions">
+        <form action="/AddInventory/Submitions" method="post">
             <div class="mt-3">
                 <label class="form-label">Company</label>
                 <input class="form-control" type="text" name="Company" placeholder="Samsung">
@@ -41,9 +41,9 @@
 
             <div class="mt-3">
                 <labe class="form-label">Discription</label>
-                <input class="form-control" type="text" name="Discription" placeholder="This phone is good because ...">
+                <textarea class="form-control" type="text" name="Discription" placeholder="This phone is good because ..."></textarea>
             </div>
-            <input class="mt-3" type="submit" name="submit">
+            <input class="mt-3" type="submit">
         </div>
         </form>
         {% include 'footer.html' %}

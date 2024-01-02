@@ -1,9 +1,9 @@
 from flask import  Flask, render_template, jsonify, request
-from database import engine, load_inventory_from_DB, load_inventories_from_DB
+from database import engine, load_inventory_from_DB, load_inventories_from_DB, add_inventory_to_db
 from sqlalchemy import text
 
 app = Flask(__name__)
- 
+
 def load_inventories_from_DB():
     with engine.connect() as conn:
         result = conn.execute(text("select * from inventory"))
@@ -41,10 +41,12 @@ def show_inventory(Id):
 def add_inventory():
     return render_template('AddInventory.html')
 
-@app.route("/AddInventory/Submitions")
+@app.route("/AddInventory/Submitions", methods=['post'])
 def add_to_inventory():
-    data = request.args
+    data = request.form
     return jsonify(data)
+    add_inventory_to_db(data)
+    return render_template('InventoryAdded.html', data=data)
 
 if __name__ == "__main__":
     app.run()

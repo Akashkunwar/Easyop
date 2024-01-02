@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inventory Added</title>
+        {% include 'bootstrap.html' %}
+    </head>
+    <body>
+        {% include 'header.html' %}
+        <div class="mx-5 my-5">
+            <p>Your Inventory is added</p>
+            
+            <div class="mx-5 my-5">
+                <h3>Company</h3>
+                <p>{{data.Company}}</p>
+            </div>
+            
+            <div class="mx-5 my-5">
+                <h3>Model</h3>
+                <p>{{data.Model}}</p>
+            </div>
+            
+            <div class="mx-5 my-5">
+                <h3>Price</h3>
+                <p>{{data.Price}}</p>
+            </div>
+            
+            <div class="mx-5 my-5">
+                <h3>Quantity</h3>
+                <p>{{data.Quantity}}</p>
+            </div>
+            
+            <div class="mx-5 my-5">
+                <h3>Discription</h3>
+                <p>{{data.Discription}}</p>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </body>
+</html>
