@@ -16,9 +16,16 @@ def load_inventories_from_DB():
         return inventory_dict
 
 @app.route('/')
-def hello_easyop():
+def home():
+    # inventory=load_inventories_from_DB()
+    return render_template('home.html', companyName = 'EasyOP')
+
+@app.route('/inventory')
+def inventory():
     inventory=load_inventories_from_DB()
-    return render_template('home.html', inventory=inventory, companyName = 'EasyOP')
+    # return jsonify(inventory)
+    return render_template('ShowInventory.html', inventory=inventory)
+
 
 @app.route('/api/inventory')
 def list_inventory():
