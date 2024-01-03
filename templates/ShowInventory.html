@@ -11,10 +11,10 @@
     </head>
     <body>
         {% include 'header.html' %}
-    <div class = 'ms-5 mt-3'>
-        <h1>Inventory</h1>
+    <div class = 'mx-3 mt-3'>
+        <h1 class="ms-5">Inventory</h1>
     <p class = 'lead'>
-        <div>
+        <div class="mx-5">
         {% for inventory in inventory %}
         {% include 'inventoryitem.html' %}
         {% endfor %}

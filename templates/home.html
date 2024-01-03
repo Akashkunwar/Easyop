@@ -4,16 +4,19 @@
         <title>EasyOP</title>
         <style>
             #banner {
-                width: 850;
-                padding-top: 15px;
+                width: 100vw;
+                height: auto;
+                display: block;
+                object-fit: cover;
+                object-position: left;
             }
         </style>
     </head>
     <body>
         {% include 'header.html' %}
-    <div class = 'ms-5 mt-3'>
+    <div class = 'ms-5 mt-3 mx-5'>
         <h1>{{companyName}}</h1>
-        <img class="img-fluid" id="banner" src="https://th.bing.com/th/id/OIP.dOrjtVMUFW0bGOgsaJVWawHaCU?rs=1&pid=ImgDetMain">
+        <img class="img-fluid" id="banner" src="../static/Banner.jpg">
 
     <h2 class = 'mt-4'>About EasyOP</h2>
     
@@ -30,7 +33,7 @@
     <div style="display: flex; justify-content: center;">
         <a href="/AddInventory" class="btn btn-primary">Add Inventory</a>
     </div> -->
-    
+
     </div>
     {% include 'footer.html' %}
     </body>
